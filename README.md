@@ -21,18 +21,18 @@ For full documentation, refer https://devopscube.com/deploy-postgresql-statefuls
  - kubectl apply -f postgres-statefulset.yaml -n database
  
  ****
- Connect to PostgreSQL Cluster From Client :
- kubectl apply -f psql-client.yaml -n database
- get encoded password to login in database with below command :
- kubectl get secret postgres-secrets -n database -o jsonpath="{.data.postgresql-password}" | base64 --decode
- kubectl exec -it pg-client -n database -- /bin/bash
+ #### Connect to PostgreSQL Cluster From Client :
+ - kubectl apply -f psql-client.yaml -n database
+ #### get encoded password to login in database with below command :
+ - kubectl get secret postgres-secrets -n database -o jsonpath="{.data.postgresql-password}" | base64 --decode
+ - kubectl exec -it pg-client -n database -- /bin/bash
  ****
- For monitoing we use grafana and prometheus
- first we have to install posgresql-exporter in kubernetes cluster that we do that by Helm installation :
- helm install my-release prometheus-community/prometheus-postgres-exporter
+ ### For monitoing we use grafana and prometheus
+ #### first we have to install posgresql-exporter in kubernetes cluster that we do that by Helm installation :
+ - helm install my-release prometheus-community/prometheus-postgres-exporter
  
-default port is 80 , change it to another like 8880
-add psql metric as a new scrab to prometheus config file :
+#### default port is 80 , change it to another like 8880
+#### add psql metric as a new scrab to prometheus config file :
 
  # scrape_config job
     - job_name : postgres
@@ -45,5 +45,3 @@ finally add it to Grafna
 
 ####
 
-### postgresql exporter :
-#### helm install my-release prometheus-community/prometheus-postgres-exporter
