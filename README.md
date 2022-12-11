@@ -10,15 +10,15 @@ For full documentation, refer https://devopscube.com/deploy-postgresql-statefuls
  - Glusterfs storage for persist data out of the kubernetes cluster
  - Prometheus and Grafna for monitoring Postgresql culster
  ****
- git clone https://github.com/meisammaleki/postgresql-cluster-in-kubernetes-with-prometheus-and-grafana-.git
- kubectl create namespace database
- cd to postgresql
- kubectl apply -f postgres-configmap.yaml -n database
- kubectl apply -f postgres-headless-svc.yaml -n database 
- note : we require a headless service because it is a requirement for the PostgresSQL statefulset.
- https://kubernetes.io/docs/concepts/services-networking/service/#headless-services
- kubectl apply -f postgres-secrets.yaml -n database
- kubectl apply -f postgres-statefulset.yaml -n database
+ - git clone https://github.com/meisammaleki/postgresql-cluster-in-kubernetes-with-prometheus-and-grafana-.git
+ - kubectl create namespace database
+ - cd to postgresql
+ - kubectl apply -f postgres-configmap.yaml -n database
+ - kubectl apply -f postgres-headless-svc.yaml -n database 
+ ### note : we require a headless service because it is a requirement for the PostgresSQL statefulset.
+ - https://kubernetes.io/docs/concepts/services-networking/service/#headless-services
+ - kubectl apply -f postgres-secrets.yaml -n database
+ - kubectl apply -f postgres-statefulset.yaml -n database
  
  ****
  Connect to PostgreSQL Cluster From Client :
